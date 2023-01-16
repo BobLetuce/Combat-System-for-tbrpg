@@ -17,4 +17,4 @@ int Lattackslevel(int attacklevel);
 int Lattackc2(void);
 int healc1(void);
 int healc2(void);
-int healevels(int healevel);
+int healevels(int healevel); 
