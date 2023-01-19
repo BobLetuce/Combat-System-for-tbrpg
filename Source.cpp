@@ -81,11 +81,7 @@ int healevels(int healevel) {
     }
 
 }
-
-
-
-
-
+  
 int enemyattack(void) {
     int eattack = 20;
     int critd = 0;
@@ -142,4 +138,24 @@ int Lattackslevel(int attacklevel) {
         attackr = Lattackc2();
         return attackr;
     }
+}
+
+
+int enemyshealth(int plevel, gh){
+    switch (plevel) {
+        
+    case 1: {
+
+        gh = 100;
+        break;}
+
+    case 2: {
+
+
+        gh = 200;
+        break;
+    }
+
+          return gh;
+    }   
 }
