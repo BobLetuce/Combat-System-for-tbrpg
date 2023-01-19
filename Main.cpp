@@ -9,8 +9,8 @@ int main()
     int healthlevel = 1;
     int rechargelevel = 1;
     int healevel = 1;
-
-
+    int plevel = 1;
+    int gh{};
     std::vector<int> Monster{ 1,2,3,4,5 };
     int ph = 150;
     std::string player_weapon;
@@ -41,7 +41,8 @@ int main()
     }
 
 
-    int gh = 100;
+    int gh = enemyshealth(plevel);
+
     do {
         int attack2 = rand() % 30 + 15;
         std::cout << "Player Health:" << ph << "\n";
@@ -83,6 +84,7 @@ int main()
         ph = 150;
         std::cout << "You gained 20 exp\n";
         std::cout << "What skill would you like to increase: Health(1), Attack(2), Critchance(3), Recharge(4), Or Heal(5) \n";
+        plevel = plevel + 1;
         std::cin >> skillup;
     }
     switch (skillup) {
@@ -109,24 +111,24 @@ int main()
 
 
     std::cout << "You have found the goblin get ready to fight\n";
-    int gh2 = 200;
+    int enemyshealth(int plevel, int gh);
     do {
 
         int attack2 = rand() % 30 + 15;
         std::cout << "Player Health:" << ph << "\n";
         std::cout << "Player Energy" << PE << "\n";
-        std::cout << "Goblin Health:" << gh2 << "\n";
+        std::cout << "Goblin Health:" << gh << "\n";
         std::cout << "Enter 1(Heavy Attack) 2(Light Attack) 3(Recharge Energy) or 4(Heal)\n";
         std::cin >> attack;
 
         if (attack == Hattack) {
 
-            gh2 = gh2 - (Hattackslevel(attacklevel) + critslevel(critlevel));
+            gh = gh - (Hattackslevel(attacklevel) + critslevel(critlevel));
             ph = ph - enemyattack();
             PE + PE - 10;
         }
         if (attack == Lattack) {
-            gh2 = gh2 - (Lattackslevel(attacklevel) + critslevel(critlevel));
+            gh = gh - (Lattackslevel(attacklevel) + critslevel(critlevel));
             PE = PE - 5;
             ph = ph - enemyattack();
         }
@@ -142,7 +144,7 @@ int main()
             ph = ph - enemyattack();
         }
 
-    } while (gh2 > 0);
+    } while (gh > 0);
 
 
     std::cout << "You win! GO DIE!!!";
